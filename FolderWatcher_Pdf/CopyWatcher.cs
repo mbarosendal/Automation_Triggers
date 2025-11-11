@@ -11,9 +11,7 @@ namespace Automation_Experiments
 
         internal static async Task StartCopyWatcher()
         {
-            Console.WriteLine("Press Enter to start monitoring clipboard... (Press Enter again to exit)\n");
-            Console.ReadLine();
-
+            Console.Clear();
             lastClipboard = await ClipboardService.GetTextAsync() ?? "";
 
             Console.WriteLine("Monitoring clipboard... (Press Enter to exit)\n");
@@ -21,6 +19,7 @@ namespace Automation_Experiments
             var monitorTask = MonitorClipboard(cts.Token);
 
             Console.ReadLine();
+            Console.Clear();
             cts.Cancel();
 
             try { await monitorTask; } catch { }

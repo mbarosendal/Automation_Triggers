@@ -11,6 +11,8 @@ namespace Automation_Experiments
     {
         internal static void StartFolderWatcher()
         {
+            Console.Clear();
+
             string path = @"C:\Users\Public\Temp";
 
             if (!Directory.Exists(path))
@@ -28,9 +30,10 @@ namespace Automation_Experiments
 
             watcher.EnableRaisingEvents = true;
 
-            Console.WriteLine($"Monitoring: {path}");
+            Console.WriteLine($"Monitoring for PDF-files: {path}");
             Console.WriteLine("Press Enter to exit...\n");
             Console.ReadLine();
+            Console.Clear();
         }
 
         static void OnPdfAdded(object sender, FileSystemEventArgs e)

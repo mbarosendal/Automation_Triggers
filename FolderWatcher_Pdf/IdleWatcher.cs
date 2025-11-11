@@ -25,6 +25,8 @@ namespace FolderWatcher_Pdf
 
         public static async Task StartIdleWatcher()
         {
+            Console.Clear();
+
             Console.WriteLine($"Monitoring user activity... (idle threshold: {idleThresholdSeconds}s)");
 
             var cts = new CancellationTokenSource();
